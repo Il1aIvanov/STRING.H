@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - Coverage_Report.info - functions/s21_copy.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">functions</a> - s21_copy.c<span style="font-size: 80%;"> (source / <a href="s21_copy.c.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">Coverage_Report.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">22</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2023-07-31 17:01:52</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : #include &quot;s21_common.h&quot;</span>
+<span id="L2"><span class="lineNum">       2</span>              : </span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC tlaBgGNC">         150 : void *s21_memcpy(void *dest, const void *src, s21_size_t n) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">         150 :   if (dest == S21_NULL) return S21_NULL;</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">         150 :   char *dest_char = (char *)dest;</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">         150 :   const char *src_char = (const char *)src;</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">        7314 :   for (s21_size_t i = 0; i &lt; n; i++) {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">        7164 :     dest_char[i] = src_char[i];</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">        7164 :   }</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">         150 :   return dest;</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">         150 : }</span></span>
+<span id="L12"><span class="lineNum">      12</span>              : </span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">         150 : void *s21_memset(void *str, int c, s21_size_t n) {</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">         150 :   char *str_char = (char *)str;</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">        5943 :   for (s21_size_t i = 0; i &lt; n; i++) {</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">        5793 :     str_char[i] = (unsigned char)c;</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">        5793 :   }</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">         150 :   return str;</span></span>
+<span id="L19"><span class="lineNum">      19</span>              : }</span>
+<span id="L20"><span class="lineNum">      20</span>              : </span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">         150 : char *s21_strncpy(char *dest, const char *src, s21_size_t n) {</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">         150 :   if (dest == S21_NULL || src == NULL || n == 0) return dest;</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">        5307 :   for (s21_size_t i = 0; i &lt; n &amp;&amp; src[i] != '\0'; i++) {</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">        5157 :     dest[i] = src[i];</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">        5157 :   }</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">         150 :   return dest;</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">         150 : }</span></span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>
