@@ -1,1 +1,0 @@
-genhtml -o gcov gcov/Coverage_Report.info
